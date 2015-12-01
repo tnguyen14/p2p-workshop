@@ -6,8 +6,5 @@ var client = net.connect({
 	port: 4002
 });
 
-client.on('data', function (data) {
-	process.stdout.write(data);
-});
-
 process.stdin.pipe(client);
+client.pipe(process.stdout);
